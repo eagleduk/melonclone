@@ -4,7 +4,8 @@ import session from "express-session";
 import flash from "express-flash";
 import MongoStore from "connect-mongo";
 import { localsMiddleware } from "./middlewares";
-import rootRouter from "./routers/rootRouter";
+import rootRouter from "./routers/root.router";
+import songRouter from "./routers/song.router";
 
 const app = express();
 const logger = morgan("dev");
@@ -28,6 +29,7 @@ app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("assets"));
 
 app.use("/", rootRouter);
+app.use("/song", songRouter);
 /*
 Add more routers here!
 */

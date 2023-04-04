@@ -1,0 +1,10 @@
+mixin song(index, song)
+    li(class="main-song-card") 
+        div(class="song-ranking")
+            h1=index+1
+        div(class="song-content")
+            div(class="song-img")
+                img(width=song.snippet.thumbnails.default.width,height=song.snippet.thumbnails.default.height,src=song.snippet.thumbnails.default.url)
+            div(class="song-info")
+                h1=song.snippet.title
+                span=song.statistics.viewCount

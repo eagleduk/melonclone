@@ -22,3 +22,32 @@ body {
   background-color: $bg;
   color: white;
 }
+
+main {
+  width: 80%;
+  margin: 0 auto;
+  .main-song-card {
+    display: flex;
+    width: 100%;
+
+    .song-ranking {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .song-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      .song-img {
+        margin: 0 10px;
+      }
+      .song-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
+}
