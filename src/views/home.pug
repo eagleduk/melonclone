@@ -2,7 +2,8 @@ extends base
 include ./song/songCard
 
 block content
-    main(class="main")
+    div(class="song-lists")
         ol
             each song, index in list
                 +song(index, song)
+    include components/player

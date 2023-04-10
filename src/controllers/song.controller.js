@@ -10,3 +10,5 @@ export const pull = async (req, res) => {
   }
   return res.send("<h1> Hello </h1>");
 };
+
+export const getInfo = async (req, res) => {};

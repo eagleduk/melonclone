@@ -1,5 +1,5 @@
 mixin song(index, song)
-    li(class="main-song-card") 
+    li(class="song-item",data-id=song.id, data-_id=song._id,) 
         div(class="song-ranking")
             h1=index+1
         div(class="song-content")

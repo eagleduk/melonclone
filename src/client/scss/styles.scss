@@ -11,9 +11,36 @@
 // Example: @import "./screens/search.scss";
 
 // Defaults
+
+* {
+  box-sizing: border-box;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+@keyframes notification {
+  0% {
+    right: 0;
+    width: 0;
+  }
+  100% {
+    right: 0;
+    width: 500px;
+  }
+}
+
+@keyframes notification2 {
+  0% {
+    right: 0;
+    width: 500px;
+  }
+  100% {
+    right: 0;
+    width: 0;
+  }
 }
 
 body {
@@ -24,30 +51,57 @@ body {
 }
 
 main {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
-  .main-song-card {
-    display: flex;
+  display: flex;
+  position: relative;
+
+  .song-lists {
     width: 100%;
 
-    .song-ranking {
+    .song-item {
       display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+      width: 100%;
+      padding: 10px;
 
-    .song-content {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      .song-img {
-        margin: 0 10px;
-      }
-      .song-info {
+      .song-ranking {
         display: flex;
-        flex-direction: column;
+        align-items: center;
         justify-content: center;
       }
+
+      .song-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .song-img {
+          margin: 0 10px;
+        }
+        .song-info {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
+    }
+  }
+  aside#player {
+    // display: none;
+    // width: 500px;
+    background-color: tomato;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    animation-name: notification2;
+    animation-duration: 0.8s;
+    &.show {
+      animation-name: notification;
+      display: block;
+    }
+    &.hide {
+      display: none;
     }
   }
 }
