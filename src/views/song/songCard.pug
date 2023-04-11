@@ -6,5 +6,5 @@ mixin song(index, song)
             div(class="song-img")
                 img(width=song.snippet.thumbnails.default.width,height=song.snippet.thumbnails.default.height,src=song.snippet.thumbnails.default.url)
             div(class="song-info")
-                h1=song.snippet.title
-                span=song.statistics.viewCount
+                h2=song.snippet.title
+                //- span=song.statistics.viewCount
