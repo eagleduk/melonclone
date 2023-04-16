@@ -65,14 +65,16 @@ main {
     width: 70%;
     margin: 0 auto;
     background-color: rgb(14, 15, 36);
+
     .song-item:nth-child(2n) {
       background-color: rgb(40, 38, 49);
     }
+
     .song-item {
       display: flex;
       width: 100%;
       padding: 10px;
-      cursor: pointer;
+      // cursor: pointer;
 
       .song-ranking {
         display: flex;
@@ -104,6 +106,7 @@ main {
       }
     }
   }
+
   aside#player {
     // display: none;
     // width: 500px;
@@ -122,6 +125,7 @@ main {
     button#player-slider::before {
       content: "<";
     }
+
     &.show {
       animation-name: show-slide;
       right: 0;
@@ -130,6 +134,7 @@ main {
         content: ">";
       }
     }
+
     &.hide {
       animation-name: hide-slide;
       right: -500px;
@@ -159,5 +164,9 @@ main {
       width: 500px;
       height: 360px;
     }
+  }
+
+  button.btn-control {
+    cursor: pointer;
   }
 }

@@ -3,8 +3,12 @@ aside(id="player" class="")
         button(type="button",id="player-slider")
     section
         div(class="player-header")
-            //- button(id="player-close")
-            //-     span X
-        div(class="player-body")
             p(id="yt-player")
+        div(class="player-body")
+            p(id="player-controller")
+                button(type="button" class="btn-control")="<<"
+                button(type="button" class="btn-control")="||"
+                button(type="button" class="btn-control")=">"
+                button(type="button" class="btn-control")=">>"
         div(class="player-footer")
+            p(id="player-list")

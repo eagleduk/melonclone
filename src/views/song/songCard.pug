@@ -8,3 +8,6 @@ mixin song(index, song)
             div(class="song-info")
                 h2=song.snippet.title
                 //- span=song.statistics.viewCount
+        div(class="song-player")
+            button(type="button" class="btn-control play-song",data-id=song.id)=">"
+            button(type="button" class="btn-control add-song",data-id=song.id)="+"
