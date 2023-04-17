@@ -6,9 +6,9 @@ aside(id="player" class="")
             p(id="yt-player")
         div(class="player-body")
             p(id="player-controller")
-                button(type="button" class="btn-control")="<<"
-                button(type="button" class="btn-control")="||"
-                button(type="button" class="btn-control")=">"
-                button(type="button" class="btn-control")=">>"
+                button(type="button" class="btn-control" id="prev-song")="<<"
+                button(type="button" class="btn-control" id="pause-song")="||"
+                button(type="button" class="btn-control" id="play-song")=">"
+                button(type="button" class="btn-control" id="next-song")=">>"
         div(class="player-footer")
-            p(id="player-list")
+            ul(id="player-list")

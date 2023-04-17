@@ -164,6 +164,20 @@ main {
       width: 500px;
       height: 360px;
     }
+
+    p#player-controller {
+      display: flex;
+      justify-content: center;
+    }
+
+    ul#player-list {
+      li {
+        background-color: tomato;
+      }
+      li.song-highlight {
+        color: chartreuse;
+      }
+    }
   }
 
   button.btn-control {

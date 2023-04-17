@@ -1,5 +1,5 @@
 mixin song(index, song)
-    li(class="song-item",data-id=song.id, data-_id=song._id,) 
+    li(class="song-item",data-id=song.id, data-_id=song._id) 
         div(class="song-ranking")
             h1=index+1
         div(class="song-content")
@@ -9,5 +9,5 @@ mixin song(index, song)
                 h2=song.snippet.title
                 //- span=song.statistics.viewCount
         div(class="song-player")
-            button(type="button" class="btn-control play-song",data-id=song.id)=">"
-            button(type="button" class="btn-control add-song",data-id=song.id)="+"
+            button(type="button" class="btn-control play-song",data-id=song.id, data-title=song.snippet.title)=">"
+            button(type="button" class="btn-control add-song",data-id=song.id, data-title=song.snippet.title)="+"
