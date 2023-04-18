@@ -39,11 +39,25 @@ window.YT.ready(() => {
     },
   });
 
+  function songClickHandler(event) {
+    const { id } = event.target.dataset;
+    playerListElement.children[globalThis.playIndex]?.classList.remove(
+      "song-highlight"
+    );
+    globalThis.playIndex = globalThis.playLists.indexOf(id);
+    player.cueVideoById({
+      videoId: id,
+    });
+    playerListElement.children[globalThis.playIndex].classList.add(
+      "song-highlight"
+    );
+  }
+
   document
     .querySelectorAll("main li.song-item button.play-song")
     .forEach((element) => {
       element.addEventListener("click", (e) => {
-        const { id, title } = e.target.dataset;
+        const { id, title } = element.dataset;
 
         if (playerFrame.dataset.id === id) return;
         playerFrame.classList.add("show");
@@ -62,6 +76,8 @@ window.YT.ready(() => {
         li.className = "song-highlight";
         li.dataset.id = id;
         li.textContent = title;
+        li.title = title;
+        li.addEventListener("click", songClickHandler);
         playerListElement.prepend(li);
       });
     });
@@ -70,10 +86,11 @@ window.YT.ready(() => {
     .querySelectorAll("main li.song-item button.add-song")
     .forEach((element) => {
       element.addEventListener("click", (e) => {
-        const { id, title } = e.target.dataset;
+        const { id, title } = element.dataset;
         if (globalThis.playLists.indexOf(id) > -1) return;
         globalThis.playIndex = 0;
         globalThis.playLists.push(id);
+
         if (globalThis.playLists.length === 1 && false) {
           playerFrame.classList.add("show");
           playerFrame.classList.remove("hide");
@@ -85,6 +102,8 @@ window.YT.ready(() => {
         const li = document.createElement("li");
         li.dataset.id = id;
         li.textContent = title;
+        li.title = title;
+        li.addEventListener("click", songClickHandler);
         playerListElement.append(li);
       });
     });
@@ -133,7 +152,16 @@ window.YT.ready(() => {
   document.querySelector("button#play-song").addEventListener("click", (e) => {
     if (globalThis.playIndex === -1 && globalThis.playLists.length === 0)
       return;
-    player.playVideo();
+    const status = player.getPlayerState();
+    playerListElement.children[globalThis.playIndex].classList.add(
+      "song-highlight"
+    );
+    if (status === 5) {
+      const ii = globalThis.playLists[0];
+      player.loadVideoById(ii);
+    } else {
+      player.playVideo();
+    }
   });
 
   document.querySelector("button#next-song").addEventListener("click", (e) => {

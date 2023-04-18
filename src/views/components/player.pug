@@ -6,9 +6,13 @@ aside(id="player" class="")
             p(id="yt-player")
         div(class="player-body")
             p(id="player-controller")
-                button(type="button" class="btn-control" id="prev-song")="<<"
-                button(type="button" class="btn-control" id="pause-song")="||"
-                button(type="button" class="btn-control" id="play-song")=">"
-                button(type="button" class="btn-control" id="next-song")=">>"
+                button(type="button" class="btn-control" id="prev-song")
+                    i.fa.fa-backward
+                button(type="button" class="btn-control" id="pause-song")
+                    i.fa.fa-pause
+                button(type="button" class="btn-control" id="play-song")
+                    i.fa.fa-play
+                button(type="button" class="btn-control" id="next-song")
+                    i.fa.fa-forward
         div(class="player-footer")
             ul(id="player-list")

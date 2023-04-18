@@ -7,7 +7,8 @@ mixin song(index, song)
                 img(width=song.snippet.thumbnails.default.width,height=song.snippet.thumbnails.default.height,src=song.snippet.thumbnails.default.url)
             div(class="song-info")
                 h2=song.snippet.title
-                //- span=song.statistics.viewCount
         div(class="song-player")
-            button(type="button" class="btn-control play-song",data-id=song.id, data-title=song.snippet.title)=">"
-            button(type="button" class="btn-control add-song",data-id=song.id, data-title=song.snippet.title)="+"
+            button(type="button" class="btn-control play-song",data-id=song.id, data-title=song.snippet.title)
+                i.fa.fa-play
+            button(type="button" class="btn-control add-song",data-id=song.id, data-title=song.snippet.title)
+                i.fa.fa-plus

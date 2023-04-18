@@ -28,14 +28,14 @@ a {
   }
   100% {
     right: 0;
-    width: 500px;
+    width: 530px;
   }
 }
 
 @keyframes hide-slide {
   0% {
     right: 0;
-    width: 500px;
+    width: 530px;
   }
   100% {
     right: 0;
@@ -90,7 +90,8 @@ main {
       .song-content {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: left;
+        width: 100%;
 
         .song-img {
           margin: 0 10px;
@@ -105,6 +106,14 @@ main {
         }
       }
     }
+
+    .song-player {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 10px;
+      margin-right: 15px;
+    }
   }
 
   aside#player {
@@ -112,14 +121,15 @@ main {
     // width: 500px;
     background-color: inherit;
     position: fixed;
-    top: calc(100vh - 75%);
+    top: 50px;
     animation-duration: 0.8s;
-    height: 360px;
+    height: calc(100vh - 100px);
     display: flex;
-    right: -500px;
+    right: -530px;
 
     button#player-slider {
       cursor: pointer;
+      font-size: 24px;
     }
 
     button#player-slider::before {
@@ -137,7 +147,7 @@ main {
 
     &.hide {
       animation-name: hide-slide;
-      right: -500px;
+      right: -530px;
       button#player-slider::before {
         content: "<";
       }
@@ -157,7 +167,12 @@ main {
     }
 
     section:last-child {
-      background-color: tomato;
+      padding: 10px 15px;
+      display: flex;
+      flex-direction: column;
+      background-color: darkgray;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
     }
 
     p#yt-player {
@@ -166,21 +181,50 @@ main {
     }
 
     p#player-controller {
+      margin: 5px 0;
       display: flex;
       justify-content: center;
+      gap: 10px;
     }
 
-    ul#player-list {
-      li {
-        background-color: tomato;
-      }
-      li.song-highlight {
-        color: chartreuse;
+    .player-footer {
+      height: 100%;
+      overflow-y: overlay;
+
+      ul#player-list {
+        li {
+          background-color: rgb(190, 168, 168);
+          height: 30px;
+          font-size: 22px;
+          padding: 0 15px;
+          margin: 3px 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 500px;
+          cursor: pointer;
+        }
+        li:nth-child(2n) {
+          background-color: rgb(137, 139, 139);
+        }
+        li.song-highlight {
+          color: chartreuse;
+        }
       }
     }
   }
 
   button.btn-control {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    // font-size: 40px;
     cursor: pointer;
+    border-width: 0;
+    background-color: rgba(235, 235, 240, 0.6);
+  }
+  button.btn-control:hover,
+  button.btn-control:active {
+    background-color: rgba(235, 235, 240, 1);
   }
 }
